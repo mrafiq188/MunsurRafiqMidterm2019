@@ -19,7 +19,7 @@ public class CollectionView {
                 map.put(6, "Seattle");
 
                 for (Map.Entry<Integer, String> en : map.entrySet()) {
-                        System.out.println(en);
+                        System.out.println("This is:" + en);
                 }
         }
 }

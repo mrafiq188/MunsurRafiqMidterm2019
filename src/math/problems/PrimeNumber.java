@@ -13,6 +13,40 @@ public class PrimeNumber {
 		 *
 		 */
 
+		int counter = 0;
+
+		for (int i = 2; i < 1000000; i++) {
+
+			if (i == 2) {
+
+				System.out.println(i);
+
+			} else {
+				if (isPrime(i)) {
+					counter++;
+					System.out.println(i);
+				} else {
+					System.out.println("Non-Prime; " + i);
+					System.out.println("Total nonPrime number: " + (i - counter));
+				}
+			}
+		}
+		System.out.println("Total Prime Number: " + counter);
 	}
 
+	public static boolean isPrime(int n) {
+		if (n % 2 == 0) return false;
+		for (int i = 3; i * i < n; i += 2) {
+			if (n % i == 0) return false;
+
+		}
+		return true;
+//		Prime numbers from 1 million
+//		Non-Prime; 999999
+//		Total nonPrime number: 921335
+//		Total Prime Number: 78664
+
+	}
 }
+
+
