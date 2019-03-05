@@ -49,11 +49,11 @@ A. Determine who is allowed to access methods/data. Can be public or private.
 
 What is OOP ? Define each feature of java OOP.
 A. Object oriented programming. The program based on objects, which are classes.
-   encapsulation- data hiding,
-   inheritance- inherit from parent/super class,
-   abstraction- use abstract classes to extend and create concrete classes,
-   polymorphism- child class refers to parent class &
-   method overload(same signature different outputs) overriding (same body, same signature, but different body)
+   - encapsulation- data hiding,
+   - inheritance- inherit from parent/super class,
+   - abstraction- use abstract classes to extend and create concrete classes,
+   - polymorphism- child class refers to parent class &
+     method overload(same signature different outputs) overriding (same body, same signature, but different body)
 
 What is Java Package and which package is imported by default?
 A. Java package organizes java classes into namespaces and java.lang package is imported by default.
@@ -159,7 +159,7 @@ What is Iterator?
 A. Iterator are used in Collection Framwork in Java to retrieve elements one by one.
 
 Which one will take more memory, an int or Integer?
-A. Interger.
+A. Integer.
 
 Why is String Immutable in Java?
 A. To prevent security issues.
@@ -184,16 +184,32 @@ What is the difference between stack and heap in Java?
 A. Heap is used to store objects while stack is used to store local variables and functions.
 
 What is reflection in java and why is it useful?
-A.  Reflection is an API which is used to examine or modify the before
-what is multithreading in java?
-What is the use of synchronization in Java?
-What is Framework?
-What are the testing Framework available in java?
-Difference between jUnit and testNG?
-What are the dependencies for this project?
-what is dependency injection in java?
-What is static binding and dynamic binding?
+A. Is a process of examining and modifying the run time behavior of a class at run time.
 
+What is multithreading in java?
+A. Basically is a process of executing multiple threads simultaneously.
+
+What is the use of synchronization in Java?
+A.Synchronization allows you to control how different threads will execute a piece of code.
+
+What is Framework?
+A. Java Frameworks is just large bodies of predefined Java code.
+
+What are the testing Framework available in java?
+A. Selenium, JUnit, testng, mockito, jwalk, Cucumber, Spring Test etc.
+
+Difference between jUnit and testNG?
+A. TestNG is based on JUnit, but it allows parallel testing, makes it easier to group test cases.
+
+What are the dependencies for this project?
+A. Dependencies define in which order project tasks and activities should be carried out.
+
+What is dependency injection in java?
+A. When a class is created using the new operator, the class isgit dependant on the parent class. New injects
+   the dependency.
+
+What is static binding and dynamic binding?
+A. Static binding occurs during compile time while dynamic binding occurs during runtime.
 
 
 

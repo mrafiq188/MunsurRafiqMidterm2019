@@ -2,6 +2,7 @@ package algorithm;
 
 import org.testng.Assert;
 
+
 public class UnitTestSorting {
 
     /*
@@ -22,15 +23,47 @@ public class UnitTestSorting {
         }
 
         //Now implement Unit test for rest of the soring algorithm...................below
-        sort.insertionSort(unSortedArray);
+        //sort.insertionSort(unSortedArray);
+        //verify if the unsorted array is sorted by the selection sort algorithm.
         try{
             Assert.assertEquals(sortedArray, unSortedArray, "Insertion:  Array is not sorted");
+            System.out.println("Array was sorted");
+        }catch (Exception ex){
+            ex.getMessage();
+        }
+        sort.bubbleSort(unSortedArray);
+        try{
+            Assert.assertEquals(sortedArray,unSortedArray, "Bubble: Array is not sorted" );
         }catch (Exception ex){
             ex.getMessage();
         }
 
+        //sort.mergeSort(unSortedArray);
+        try{
+            Assert.assertEquals(sortedArray, unSortedArray, "Merge:  Array is not sorted");
+        }catch (Exception ex){
+            ex.getMessage();
+        }
 
+        //sort.heapSort(unSortedArray);
+        try{
+            Assert.assertEquals(sortedArray, unSortedArray," Heap: Array is not sorted");
+        }catch (Exception ex) {
+            ex.getMessage();
+        }
+        //sort.bucketSort(unSortedArray);
+        try{
+            Assert.assertEquals(sortedArray, unSortedArray, " Bucket: Array is not sorted");
+        }catch (Exception ex){
+            ex.getMessage();
+        }
 
+        //sort.shellSort(unSortedArray);
+        try{
+            Assert.assertEquals(sortedArray, unSortedArray, " Shell: Array is not sorted");
+        }catch(Exception ex){
+            ex.getMessage();
+        }
 
     }
 }
