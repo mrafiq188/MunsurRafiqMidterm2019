@@ -29,36 +29,26 @@ public class DataReader {
 		 */
 
 		String textFile = System.getProperty("user.dir") + "/src/data/self-driving-car.txt";
-		File file = new File(textFile);
+		FileReader fr = null;
 		BufferedReader br = null;
-		String line = "";
-		String store = " ";
+
+		try{
+			fr = new FileReader(textFile);
+			System.out.println("The file has been found");
+		}catch (Exception e){
+			System.out.println("The file has not been found");
+
+		}
 		try {
-			FileReader fr = new FileReader(textFile);
 			br = new BufferedReader(fr);
-
-			while ((line = br.readLine()) != null) {
-				store += line;
+			String data = "";
+			while ((data = br.readLine()) != null) {
+				System.out.println(data);
 			}
-		} catch (IOException e){
-			e.printStackTrace();
-
-			}
-		String[] storeArray = store.split(" ");
-		List<String> storeList = new LinkedList<String>();
-		Stack<String> storeStack = new Stack<String>();
-
-		for (String element: storeArray) {
-			storeList.add(element);
-			storeStack.push(element);
+		}catch (Exception ex){
+			System.out.println("The data you are looking for is not available. ");
 		}
-		System.out.println("\n\nStack LIFO:");
-		while (!storeStack.isEmpty());
-		{
-			System.out.println(storeStack.pop() + " ");
 
-
-		}
 
 
 	}

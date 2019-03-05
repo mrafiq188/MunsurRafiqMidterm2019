@@ -1,5 +1,10 @@
 package datastructure;
 
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class UseQueue {
 
 	public static void main(String[] args) {
@@ -9,6 +14,36 @@ public class UseQueue {
 		 * 
 		 */
 
-	}
+		Queue<Integer> newQ = new LinkedList<Integer>();
 
+		// Add elements.
+		newQ.add(312);
+		newQ.add(714);
+		newQ.add(24);
+		newQ.add(942);
+		newQ.add(142);
+
+		//peek, poll, remove
+		System.out.println(newQ.peek());
+		System.out.println(newQ.poll());
+		System.out.println(newQ.peek());
+		System.out.println(newQ.remove());
+		System.out.println(newQ.peek());
+
+		//For Each loop.
+
+		System.out.println("Use of for each loop to retrieve data: ");
+		for (Integer in : newQ) {
+			System.out.println(in);
+		}
+
+		//while loop with Iterator.
+		System.out.println("Use of while loop to retrieve data: ");
+		Iterator itr = newQ.iterator();
+		while (itr.hasNext()) {
+			Integer i = (Integer) itr.next();
+			System.out.println(i);
+		}
+
+	}
 }
