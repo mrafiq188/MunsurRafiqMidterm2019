@@ -57,9 +57,10 @@ public class Sort {
 
 
     //    Bubble Sort
-    public int[] bubbleSort(int[] array) {
+        public int[] bubbleSort(int[] array) {
         final long startTime = System.currentTimeMillis();
         int[] list = array;
+
         //implement here
         int out, in;
         for (out = array.length - 1; out > 1; out--)
@@ -248,6 +249,7 @@ public class Sort {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < array.length; i++) {
             if (array[i] > max) {
+
                 max = array[i];
             }
         }

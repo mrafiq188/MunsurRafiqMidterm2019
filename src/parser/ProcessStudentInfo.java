@@ -1,14 +1,15 @@
 package parser;
 
-//import com.mysql.cj.x.protobuf.MysqlxCrud;
-//import com.sun.prism.shader.DrawCircle_LinearGradient_REFLECT_AlphaTest_Loader;
 import databases.ConnectToMongoDB;
 import databases.ConnectToSqlDB;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ProcessStudentInfo {
 
@@ -41,25 +42,25 @@ public class ProcessStudentInfo {
 		String tag = "id";
 		//Create ConnectToSqlDB Object
 		ConnectToMongoDB connectToMongoDB = new ConnectToMongoDB();
-		//ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
+
 		//Declare a Map with List<String> into it.
 		Map<String, List<Student>> list = new LinkedHashMap<String, List<Student>>();
-				
+
 				/*Declare 2 ArrayList with Student data type to store Selenium student into one of the ArrayList and
 				  Qtp student into another ArrayList. */
 
-		List<Student> seleniumStudents = new ArrayList<Student>();
-		List<Student> qtpStudents = new ArrayList<Student>();
+        ArrayList<Student> seleniumStudents = new ArrayList<Student>();
+        ArrayList<Student> qtpStudents = new ArrayList<Student>();
 
 		//Create XMLReader object.
 		XmlReader xmlReader = new XmlReader();
 
 
 		//Parse Data using parseData method and then store data into Selenium ArrayList.
-		seleniumStudents = xmlReader.parseData(tag, pathSelenium);
+		seleniumStudents = (ArrayList<Student>) xmlReader.parseData(tag, pathSelenium);
 
 		//Parse Data using parseData method and then store data into Qtp ArrayList.
-		seleniumStudents = xmlReader.parseData(tag, pathSelenium);
+        qtpStudents= (ArrayList<Student>) xmlReader.parseData(tag,pathQtp);
 
 		//add Selenium ArrayList data into map.
 		list.put("sel", seleniumStudents);
@@ -69,20 +70,21 @@ public class ProcessStudentInfo {
 
 
 		//Retrieve map data and display output.
-		for (String str : list.keySet()) {
-
-			Iterator itr = list.keySet().iterator();
-			while (itr.hasNext()) ;
-			List st = list.get(itr.next());
-			for (Object Str : st) {
-				System.out.println(Str);
-			}
-		}
+        for (Map.Entry <String,List<Student>> print : list.entrySet()){
+            List<Student> studentList=(List<Student>) list.get(print.getKey());
+            System.out.println("\nPortfolio of Student of "+print.getKey()+"classes :\n");
+            for (Student studentprofile:studentList) {
+                String id=studentprofile.getId();
+                String firstname=studentprofile.getFirstName();
+                String lastname=studentprofile.getLastName();
+                String grade=studentprofile.getScore();
+                System.out.println("Student (id="+id+")"+firstname +" "+lastname+"      "+"Grade="+grade);
+            }
+        }
 
 
 		//Store Qtp data into Qtp table in Database
 		connectToMongoDB.insertIntoMongoDB(seleniumStudents, "qtp");
-
 		//connectToSqlDB.insertDataFromArrayListToMySql(seleniumStudents, "qtp","studentList");
 
 		//Store Selenium data into Selenium table in Database

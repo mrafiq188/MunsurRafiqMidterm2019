@@ -15,7 +15,7 @@ public class Anagram {
         //same character but in different order.For example,"CAT" and "ACT", "ARMY" and "MARY".
 
         String a = "APPLE";
-        String b = "ELPPA";
+        String b = "ELPPAs";
         System.out.println(isAnagram(a,b));
     }
     public static boolean isAnagram(String str1, String str2)//
